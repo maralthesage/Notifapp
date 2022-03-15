@@ -7,36 +7,67 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 class TimeGenerator {
     
-
+//    var notifications = [LocalNotification]()
     
-    func scheduledTest(category: String, item: String,  freq: Int, intervals: Int, hours: Int) -> [UNNotificationRequest] {
-        let content = UNMutableNotificationContent()
-        var userRequest: [UNNotificationRequest] = []
-        content.title = category
-        content.sound = .default
-        content.body = item
+    
+//    func addNotification(category: String, item: String) -> Void {
+//        let title = category
+//        let body = item
         
-        let dateComps = calculatedTime(freq: freq, intervals: intervals, hours: hours)
-        
-        for date in dateComps {
+//        notifications.append(LocalNotification(id: UUID().uuidString, title: title, body: body))
+//        print(notifications)
+                             
+    
+    
+    func setNotification(repeats: Bool, freq: Int, intervals: Int, hours: Int, category: String, item: String) {
+//        requestPermission()
+//        addNotification(category: category, item: item)
+        let dateComponents = calculatedTime(freq: freq, intervals: intervals, hours: hours)
+        for date in dateComponents {
+            scheduleNotifications(dateComponents: date[0], category: category, item: item)
             print(date[0])
-            
-            let trigger = UNCalendarNotificationTrigger(dateMatching: date[0], repeats: false)
-            let request = UNNotificationRequest(identifier: "some_long_id", content: content, trigger: trigger)
-//            UNUserNotificationCenter.current().add(request) { error in
-//                if error != nil  {
-//                    print("an error occured \(String(describing: error))")
-//                }
-//                
-//            }
-            userRequest.append(request)
         }
-        return userRequest
+        
+
+
     }
     
+//    func requestPermission() -> Void {
+//        UNUserNotificationCenter
+//            .current()
+//            .requestAuthorization(options: [.alert, .badge, .alert]) { granted, error in
+//                if granted == true && error == nil {
+//                    // We have permission!
+//                }
+//        }
+//    }
+    
+    func scheduleNotifications(dateComponents: DateComponents, category: String, item: String) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+//        print(notifications.count)
+
+        let content = UNMutableNotificationContent()
+        content.title = category
+        content.body = item
+        content.sound = .default
+
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+            let request = UNNotificationRequest(identifier: "id_\(item)", content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request) { error in
+                guard error == nil else { return }
+//                print("Scheduling notification with id: \(notification.id)")
+            }
+            
+        }
+            
+        
+    
+    
+
     func calculatedTime(freq: Int, intervals: Int, hours: Int) -> [[DateComponents]] {
         var dateComponents = DateComponents()
 //        let randomNumber = Int.random(in: 0...freq)
@@ -48,8 +79,9 @@ class TimeGenerator {
             case 0:
                 if intervals == 0 {
 //                    dateComponents.day = Int.random(in: 1...28)
-                    dateComponents.hour = Int.random(in: 14..<15)
-                    dateComponents.minute = Int.random(in: 01...03)
+                    dateComponents.hour = Int.random(in: 20..<21)
+                    dateComponents.minute = Int.random(in: 55..<56)
+                    dateComponents.second = Int.random(in: 0..<60)
                     randate.append([dateComponents])
 //                    var randate: [Date?]
 //                    randate.append(Calendar.current.nextDate(after: Date(), matching: dateComponents, matchingPolicy: .nextTime)!)

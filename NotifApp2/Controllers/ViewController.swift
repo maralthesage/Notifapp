@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var uLabel: UILabel!
     
-    var requests: [UNNotificationRequest] = []
+//    var requests: [UNNotificationRequest] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,8 @@ class ViewController: UIViewController {
     }
     
     
+    // TEST for github
+    
     func launchTime() {
         let realm = try! Realm()
         if launchedBefore {
@@ -41,26 +43,15 @@ class ViewController: UIViewController {
             print("this is not the first Launch")
             let cats = realm.objects(Category.self)
             
-            for cat in cats.reversed() {
-                print(cat.category)
+            for cat in cats {
+//                print(cat.category)
                 
-                requests = timeGenerator.scheduledTest(category: cat.category, item: cat.items[Int.random(in: 0...(cat.items.count-1))].title, freq: cat.freqs, intervals: cat.intervals, hours: cat.hours)
+                timeGenerator.setNotification(repeats: false, freq: cat.freqs, intervals: cat.intervals, hours: cat.hours, category: cat.category, item: cat.items[Int.random(in: 0...(cat.items.count-1))].title)
                 
                 
             }
-            for request in requests {
-                UNUserNotificationCenter.current().add(request) { error in
-                    if error != nil  {
-                        print("an error occured \(String(describing: error))")
-                    }
-                    
-                }
-            }
-            
-        }
-        
-        
-        else {
+
+        } else {
             
             presetData.initiateData()
             print("First Launch")
