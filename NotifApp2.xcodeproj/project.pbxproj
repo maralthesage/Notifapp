@@ -7,15 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4173BF98DCF2C49982A056B5 /* Pods_NotifApp2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE2FE06DF4BAA0F833DA13E /* Pods_NotifApp2.framework */; };
 		DB21AFDE27B445FF000ACF77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21AFDD27B445FF000ACF77 /* AppDelegate.swift */; };
 		DB21AFE027B445FF000ACF77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21AFDF27B445FF000ACF77 /* SceneDelegate.swift */; };
 		DB21AFE227B445FF000ACF77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21AFE127B445FF000ACF77 /* ViewController.swift */; };
 		DB21AFE527B445FF000ACF77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB21AFE327B445FF000ACF77 /* Main.storyboard */; };
 		DB21AFE727B44604000ACF77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB21AFE627B44604000ACF77 /* Assets.xcassets */; };
 		DB21AFEA27B44604000ACF77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB21AFE827B44604000ACF77 /* LaunchScreen.storyboard */; };
+		DB21AFF227B44675000ACF77 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21AFF127B44675000ACF77 /* Constants.swift */; };
+		DB3CEB5F27C54D70005E89F1 /* IntervalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3CEB5E27C54D70005E89F1 /* IntervalPicker.swift */; };
+		DB5F66A027BED16300499227 /* PresetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F669F27BED16200499227 /* PresetData.swift */; };
+		DB8E61DA27BD70A5004D71F0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8E61D927BD70A5004D71F0 /* Item.swift */; };
+		DB8E61DC27BD70AD004D71F0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8E61DB27BD70AD004D71F0 /* Category.swift */; };
+		DB8E61DE27BD73D7004D71F0 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8E61DD27BD73D7004D71F0 /* CategoryTableViewController.swift */; };
+		DB8E61E027BD73F9004D71F0 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8E61DF27BD73F9004D71F0 /* ItemTableViewController.swift */; };
+		DBE1E21E27CD1DEE00679249 /* TimeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE1E21D27CD1DEE00679249 /* TimeGenerator.swift */; };
+		DBE5D07727C1625000337BF7 /* RandomDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE5D07627C1625000337BF7 /* RandomDate.swift */; };
+		DBF1446D27C672FC005772AA /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1446C27C672FC005772AA /* SwipeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3FE2FE06DF4BAA0F833DA13E /* Pods_NotifApp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotifApp2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8BAD583CC3245660A411FD2 /* Pods-NotifApp2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotifApp2.release.xcconfig"; path = "Target Support Files/Pods-NotifApp2/Pods-NotifApp2.release.xcconfig"; sourceTree = "<group>"; };
 		DB21AFDA27B445FF000ACF77 /* NotifApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotifApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB21AFDD27B445FF000ACF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB21AFDF27B445FF000ACF77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +37,17 @@
 		DB21AFE627B44604000ACF77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB21AFE927B44604000ACF77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB21AFEB27B44604000ACF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB21AFF127B44675000ACF77 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DB3CEB5E27C54D70005E89F1 /* IntervalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalPicker.swift; sourceTree = "<group>"; };
+		DB5F669F27BED16200499227 /* PresetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetData.swift; sourceTree = "<group>"; };
+		DB8E61D927BD70A5004D71F0 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		DB8E61DB27BD70AD004D71F0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		DB8E61DD27BD73D7004D71F0 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		DB8E61DF27BD73F9004D71F0 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		DBE1E21D27CD1DEE00679249 /* TimeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeGenerator.swift; sourceTree = "<group>"; };
+		DBE5D07627C1625000337BF7 /* RandomDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDate.swift; sourceTree = "<group>"; };
+		DBF1446C27C672FC005772AA /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		E844930B819798F02399343D /* Pods-NotifApp2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotifApp2.debug.xcconfig"; path = "Target Support Files/Pods-NotifApp2/Pods-NotifApp2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +55,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4173BF98DCF2C49982A056B5 /* Pods_NotifApp2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27372208048E304D32F3B26C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E844930B819798F02399343D /* Pods-NotifApp2.debug.xcconfig */,
+				B8BAD583CC3245660A411FD2 /* Pods-NotifApp2.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DB21AFD127B445FF000ACF77 = {
 			isa = PBXGroup;
 			children = (
 				DB21AFDC27B445FF000ACF77 /* NotifApp2 */,
 				DB21AFDB27B445FF000ACF77 /* Products */,
+				27372208048E304D32F3B26C /* Pods */,
+				DBDDB3DA37816F8C556D2285 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +94,55 @@
 			children = (
 				DB21AFDD27B445FF000ACF77 /* AppDelegate.swift */,
 				DB21AFDF27B445FF000ACF77 /* SceneDelegate.swift */,
-				DB21AFE127B445FF000ACF77 /* ViewController.swift */,
-				DB21AFE327B445FF000ACF77 /* Main.storyboard */,
+				DB21AFF127B44675000ACF77 /* Constants.swift */,
+				DB8E61D027BD6D6D004D71F0 /* Model */,
+				DB8E61CF27BD6D57004D71F0 /* Controllers */,
+				DB8E61CE27BD6D4E004D71F0 /* View */,
 				DB21AFE627B44604000ACF77 /* Assets.xcassets */,
 				DB21AFE827B44604000ACF77 /* LaunchScreen.storyboard */,
 				DB21AFEB27B44604000ACF77 /* Info.plist */,
 			);
 			path = NotifApp2;
+			sourceTree = "<group>";
+		};
+		DB8E61CE27BD6D4E004D71F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB21AFE327B445FF000ACF77 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB8E61CF27BD6D57004D71F0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB21AFE127B445FF000ACF77 /* ViewController.swift */,
+				DB8E61DD27BD73D7004D71F0 /* CategoryTableViewController.swift */,
+				DB8E61DF27BD73F9004D71F0 /* ItemTableViewController.swift */,
+				DB3CEB5E27C54D70005E89F1 /* IntervalPicker.swift */,
+				DBF1446C27C672FC005772AA /* SwipeTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DB8E61D027BD6D6D004D71F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB5F669F27BED16200499227 /* PresetData.swift */,
+				DB8E61DB27BD70AD004D71F0 /* Category.swift */,
+				DB8E61D927BD70A5004D71F0 /* Item.swift */,
+				DBE5D07627C1625000337BF7 /* RandomDate.swift */,
+				DBE1E21D27CD1DEE00679249 /* TimeGenerator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DBDDB3DA37816F8C556D2285 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FE2FE06DF4BAA0F833DA13E /* Pods_NotifApp2.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB21AFEE27B44604000ACF77 /* Build configuration list for PBXNativeTarget "NotifApp2" */;
 			buildPhases = (
+				C073A9A3D5F980158B9EF40E /* [CP] Check Pods Manifest.lock */,
 				DB21AFD627B445FF000ACF77 /* Sources */,
 				DB21AFD727B445FF000ACF77 /* Frameworks */,
 				DB21AFD827B445FF000ACF77 /* Resources */,
+				7647FD4E3061EA1F18B01F27 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +213,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7647FD4E3061EA1F18B01F27 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NotifApp2/Pods-NotifApp2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NotifApp2/Pods-NotifApp2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NotifApp2/Pods-NotifApp2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C073A9A3D5F980158B9EF40E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NotifApp2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DB21AFD627B445FF000ACF77 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB8E61DE27BD73D7004D71F0 /* CategoryTableViewController.swift in Sources */,
+				DB5F66A027BED16300499227 /* PresetData.swift in Sources */,
 				DB21AFE227B445FF000ACF77 /* ViewController.swift in Sources */,
+				DBE1E21E27CD1DEE00679249 /* TimeGenerator.swift in Sources */,
 				DB21AFDE27B445FF000ACF77 /* AppDelegate.swift in Sources */,
+				DBF1446D27C672FC005772AA /* SwipeTableViewController.swift in Sources */,
+				DBE5D07727C1625000337BF7 /* RandomDate.swift in Sources */,
 				DB21AFE027B445FF000ACF77 /* SceneDelegate.swift in Sources */,
+				DB3CEB5F27C54D70005E89F1 /* IntervalPicker.swift in Sources */,
+				DB8E61DA27BD70A5004D71F0 /* Item.swift in Sources */,
+				DB21AFF227B44675000ACF77 /* Constants.swift in Sources */,
+				DB8E61E027BD73F9004D71F0 /* ItemTableViewController.swift in Sources */,
+				DB8E61DC27BD70AD004D71F0 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +416,7 @@
 		};
 		DB21AFEF27B44604000ACF77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E844930B819798F02399343D /* Pods-NotifApp2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +445,7 @@
 		};
 		DB21AFF027B44604000ACF77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8BAD583CC3245660A411FD2 /* Pods-NotifApp2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -6,14 +6,24 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        do{
+            _ = try Realm()
+                
+//            UIApplication.shared.setMinimumBackgroundFetchInterval(3600*24)
+            
+            
+        } catch {
+            print("This is a realm initialization error \(error)")
+        }
+
         return true
     }
 

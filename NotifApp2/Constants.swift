@@ -11,5 +11,7 @@ struct K {
     
     let firstTimeOpeningTheApp = "FirstOpen"
     let interval = "Interval"
-    
+    let categoryCellIdentifier = "CategoryCell"
+    let itemCellIdentifier = "ItemCell"
+    let segueName = "goToItems"
 }

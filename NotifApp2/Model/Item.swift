@@ -11,8 +11,7 @@ import RealmSwift
 class Item: Object {
     @objc dynamic var title: String  = ""
     var parentCategory = LinkingObjects(fromType: Category.self, property: "items")
-//    @objc dynamic var interval: Int = 0
-//    @objc dynamic var freq: Int = 0 
+
 
     
 }

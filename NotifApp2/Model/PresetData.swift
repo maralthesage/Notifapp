@@ -29,7 +29,15 @@ class PresetData {
         itemMindfulness1.title = "Are you here now?"
         mindfulness.items.append(itemMindfulness1)
 
+        let itemMemories = Item()
+        itemMemories.title = "itemMemories"
+        memories.items.append(itemMemories)
 
+        let itemGratitudes2 = Item()
+        itemGratitudes2.title = "itemGratitudes"
+        gratitudes.items.append(itemGratitudes2)
+        
+        
 
         try! realm.write {
             realm.add(mindfulness)

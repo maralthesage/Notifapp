@@ -6,84 +6,135 @@
 //
 
 import UIKit
+import RealmSwift
 
-class ItemTableViewController: UITableViewController {
+class ItemTableViewController: SwipeTableViewController {
+    
+    
+    let k = K()
+    var itemsArray: Results<Item>?
+    let realm = try! Realm()
+    
+    var selectedCategory: Category? {
+        didSet {
+            loadItems()
+            
+        }
+    }
 
+    
+    //MARK: - Standard Methods for VC
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        title = selectedCategory!.category
     }
-
+    
+    
+    
+    
+    
+    // MARK: - Tableview Datasource Methods
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return itemsArray?.count ?? 1
+        
     }
-
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        if let item = itemsArray?[indexPath.row] {
+            cell.textLabel?.text = item.title
+            
+        } else {
+            cell.textLabel?.text = "No Items Added"
+        }
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    
+    
+    
+    
+    
+    // MARK: - Navigationbar Buttons
+    @IBAction func intervalPickerPressed(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "IntervalP", sender: self)
+    
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let currentCat = selectedCategory else { fatalError("couldn't set currentCat") }
+        if let intervalVC = segue.destination as? IntervalPicker {
+            intervalVC.category = currentCat
+        }
+         
     }
-    */
+    
+    
+    @IBAction func addItemPressed(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+            if let currentCategory = self.selectedCategory {
+                do {
+                    try self.realm.write {
+                        
+                        if  textField.text != "" {
+                            let newItem = Item()
+                            newItem.title = textField.text!
+                            currentCategory.items.append(newItem)
+                        } else {
+                            let alert2 = UIAlertController()
+                            alert2.title = "Warning"
+                            alert2.message = "You should write something"
+                            let action3 = UIAlertAction(title: "Try Again", style: .cancel, handler: nil)
+                            alert2.addAction(action3)
+                            self.present(alert2, animated: true, completion: nil)
+                        }
+                        
+                    }
+                } catch {
+                    print("Error saving new items, \(error)")
+                }
+            }
+            self.tableView.reloadData()
+        }
+        let action2 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(action2)
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new item"
+            textField = alertTextField
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func loadItems() {
+        itemsArray = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
+        tableView.reloadData()
+    }
+    
+    
+    override func updateModel(at indexPath: IndexPath) {
+        if let item = itemsArray?[indexPath.row] {
+            do {
+                try realm.write{
+                    realm.delete(item)
+                }
+            } catch {
+                print("Error deleting item, \(error)")
+            }
+        }
+    }
 
 }
