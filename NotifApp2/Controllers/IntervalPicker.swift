@@ -10,39 +10,27 @@ import RealmSwift
 
 class IntervalPicker: UIViewController {
     
-    //    var selectedRow: Int = 0
+
     var category: Category?
-    //    var uiFreqPicker: String = ""
-    //    var uiRepeatsPicker: String = ""
-    //    var uiHourPicker: String = ""
-    
     let realm = try! Realm()
+    
+    let freq = K.frequencies
+    let repeats = K.intervals
+    let hours = K.hours
     
     @IBOutlet weak var freqPicker: UIPickerView!
     @IBOutlet weak var startAndEndPicker: UIPickerView!
     
-    
-    
-    let freq = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    
-    let repeats = ["Daily",
-                   "Weekly",
-                   "Monthly"]
-    
-    let hours = ["9-17", "8-12", "20-22"]
-    
-    
-    
-    
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        freqPicker.delegate   = self
-        freqPicker.dataSource = self
-        startAndEndPicker.delegate = self
+        freqPicker.delegate          = self
+        freqPicker.dataSource        = self
+        startAndEndPicker.delegate   = self
         startAndEndPicker.dataSource = self
         
         
@@ -71,6 +59,9 @@ class IntervalPicker: UIViewController {
     
     
     
+
+//MARK: - SetButton IBAction
+    
     
     @IBAction func setButton(_ sender: UIButton) {
 
@@ -79,9 +70,9 @@ class IntervalPicker: UIViewController {
         if let currentCategory = category {
             do {
                 try realm.write {
-                    currentCategory.freqs = freqPicker.selectedRow(inComponent: 0)
+                    currentCategory.freqs     = freqPicker.selectedRow(inComponent: 0)
                     currentCategory.intervals = freqPicker.selectedRow(inComponent: 1)
-                    currentCategory.hours = startAndEndPicker.selectedRow(inComponent: 0)
+                    currentCategory.hours     = startAndEndPicker.selectedRow(inComponent: 0)
                 }
                 
             }
@@ -95,14 +86,21 @@ class IntervalPicker: UIViewController {
     
 }
 
+
+
+
+
+
+//MARK: - UIPickerView DataSource And Delegate Extension
+
 extension IntervalPicker: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         if pickerView == freqPicker {
             return 2
-            
-        } else {
+        }
+        else {
             return 1
         }
     }
@@ -130,12 +128,12 @@ extension IntervalPicker: UIPickerViewDelegate, UIPickerViewDataSource {
             if component == 0 {
                 return freq[row]
                 
-            } else{
+            } else {
                 return repeats[row]
             }
-        } else {
             
-            return hours[row]
+        } else {
+                return hours[row]
             
         }
         

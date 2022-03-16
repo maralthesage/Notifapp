@@ -11,10 +11,9 @@ import RealmSwift
 class ItemTableViewController: SwipeTableViewController {
     
     
-    let k = K()
-    var itemsArray: Results<Item>?
+    let k     = K()
     let realm = try! Realm()
-    
+    var itemsArray: Results<Item>?
     var selectedCategory: Category? {
         didSet {
             loadItems()
@@ -66,10 +65,10 @@ class ItemTableViewController: SwipeTableViewController {
     
     // MARK: - Navigationbar Buttons
     @IBAction func intervalPickerPressed(_ sender: UIBarButtonItem) {
-        
         performSegue(withIdentifier: "IntervalP", sender: self)
     
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let currentCat = selectedCategory else { fatalError("couldn't set currentCat") }
@@ -82,21 +81,22 @@ class ItemTableViewController: SwipeTableViewController {
     
     @IBAction func addItemPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
-        let alert = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+        let alert     = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
+        let action    = UIAlertAction(title: "Add Item", style: .default) { (action) in
+            
             if let currentCategory = self.selectedCategory {
                 do {
                     try self.realm.write {
                         
                         if  textField.text != "" {
-                            let newItem = Item()
-                            newItem.title = textField.text!
+                            let newItem    = Item()
+                            newItem.title  = textField.text!
                             currentCategory.items.append(newItem)
                         } else {
-                            let alert2 = UIAlertController()
-                            alert2.title = "Warning"
+                            let alert2     = UIAlertController()
+                            alert2.title   = "Warning"
                             alert2.message = "You should write something"
-                            let action3 = UIAlertAction(title: "Try Again", style: .cancel, handler: nil)
+                            let action3    = UIAlertAction(title: "Try Again", style: .cancel, handler: nil)
                             alert2.addAction(action3)
                             self.present(alert2, animated: true, completion: nil)
                         }
@@ -108,6 +108,8 @@ class ItemTableViewController: SwipeTableViewController {
             }
             self.tableView.reloadData()
         }
+        
+        
         let action2 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(action2)
         alert.addTextField { (alertTextField) in
@@ -119,13 +121,14 @@ class ItemTableViewController: SwipeTableViewController {
     }
     
     
-    func loadItems() {
+    private func loadItems() {
         itemsArray = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
         tableView.reloadData()
     }
     
     
     override func updateModel(at indexPath: IndexPath) {
+        
         if let item = itemsArray?[indexPath.row] {
             do {
                 try realm.write{

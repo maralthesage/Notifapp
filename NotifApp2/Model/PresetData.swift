@@ -16,25 +16,26 @@ let mindfulness = ["Are you here now?",
                    "what are you experiencing right at this moment?"]
 
 
-class PresetData {
+struct PresetData {
     let realm = try! Realm()
+    
     func initiateData() {
-        let mindfulness = Category()
-        let memories = Category()
-        let gratitudes = Category()
-        mindfulness.category = "Mindfulness"
-        memories.category = "Memories"
-        gratitudes.category = "Gratitudes"
-        let itemMindfulness1 = Item()
+        let mindfulness        = Category()
+        let memories           = Category()
+        let gratitudes         = Category()
+        mindfulness.category   = "Mindfulness"
+        memories.category      = "Memories"
+        gratitudes.category    = "Gratitudes"
+        let itemMindfulness1   = Item()
         itemMindfulness1.title = "Are you here now?"
         mindfulness.items.append(itemMindfulness1)
 
-        let itemMemories = Item()
-        itemMemories.title = "itemMemories"
+        let itemMemories    = Item()
+        itemMemories.title  = "itemMemories"
         memories.items.append(itemMemories)
 
-        let itemGratitudes2 = Item()
-        itemGratitudes2.title = "itemGratitudes"
+        let itemGratitudes2     = Item()
+        itemGratitudes2.title   = "itemGratitudes"
         gratitudes.items.append(itemGratitudes2)
         
         

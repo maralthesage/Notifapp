@@ -14,31 +14,31 @@ class CategoryTableViewController: SwipeTableViewController {
     
     
     //MARK: - Properties
+    
     let k = K()
     let realm  = try! Realm()
     var time: Date?
-    
     var categories: Results<Category>?
     
     
     
     //MARK: - Standard Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadCategories()
-
-//        print(Realm.Configuration.defaultConfiguration.fileURL!)
-
     }
     
-    func updateTime() {
-        time = Date()
-    }
+    
+
     
     
     
     
     //MARK: - TableView Methods
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories?.count ?? 1
     }
@@ -60,23 +60,29 @@ class CategoryTableViewController: SwipeTableViewController {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add a New Cateogry", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
+
             
             if textField.text != "" {
-                let newCategory = Category()
+                
+                let newCategory      = Category()
                 newCategory.category = textField.text!
-                newCategory.freqs = Int.random(in: 1...10)
+                newCategory.freqs    = Int.random(in: 1...10)
                 self.save(category: newCategory)
+                
             } else {
-                let alert2 = UIAlertController()
-                alert2.title = "Warning"
+                
+                let alert2     = UIAlertController()
+                alert2.title   = "Warning"
                 alert2.message = "You should write something"
-                let action3 = UIAlertAction(title: "Try Again", style: .cancel, handler: nil)
+                let action3    = UIAlertAction(title: "Try Again", style: .cancel, handler: nil)
                 alert2.addAction(action3)
                 self.present(alert2, animated: true, completion: nil)
             }
             
         }
+        
         let action2 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         
         alert.addAction(action)
         alert.addAction(action2)
@@ -93,8 +99,9 @@ class CategoryTableViewController: SwipeTableViewController {
     
     
     //MARK: - Tableview Delegate Methods
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: k.segueName, sender: self)
+        performSegue(withIdentifier: K.segueName, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -110,6 +117,10 @@ class CategoryTableViewController: SwipeTableViewController {
     
     //MARK: - Extra Methods
     
+    private func updateTime() {
+        time = Date()
+    }
+    
     override func updateModel(at indexPath: IndexPath) {
         if let categoryForDeletion = self.categories?[indexPath.row] {
             do {
@@ -123,7 +134,7 @@ class CategoryTableViewController: SwipeTableViewController {
     }
     
     
-    func save(category: Category) {
+    private func save(category: Category) {
         do {
             try realm.write {
                 realm.add(category)
@@ -134,7 +145,7 @@ class CategoryTableViewController: SwipeTableViewController {
         tableView.reloadData()
     }
     
-    func loadCategories() {
+    private func loadCategories() {
         
         categories = realm.objects(Category.self)
         tableView.reloadData()

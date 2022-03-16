@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4173BF98DCF2C49982A056B5 /* Pods_NotifApp2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE2FE06DF4BAA0F833DA13E /* Pods_NotifApp2.framework */; };
-		DB1848BD27E0FBBE00137013 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1848BC27E0FBBE00137013 /* LocalNotificationManager.swift */; };
 		DB21AFDE27B445FF000ACF77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21AFDD27B445FF000ACF77 /* AppDelegate.swift */; };
 		DB21AFE027B445FF000ACF77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21AFDF27B445FF000ACF77 /* SceneDelegate.swift */; };
 		DB21AFE227B445FF000ACF77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB21AFE127B445FF000ACF77 /* ViewController.swift */; };
@@ -22,15 +21,14 @@
 		DB8E61DC27BD70AD004D71F0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8E61DB27BD70AD004D71F0 /* Category.swift */; };
 		DB8E61DE27BD73D7004D71F0 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8E61DD27BD73D7004D71F0 /* CategoryTableViewController.swift */; };
 		DB8E61E027BD73F9004D71F0 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8E61DF27BD73F9004D71F0 /* ItemTableViewController.swift */; };
+		DBE0F9FF27E25D760048BB8D /* LaunchTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE0F9FE27E25D760048BB8D /* LaunchTime.swift */; };
 		DBE1E21E27CD1DEE00679249 /* TimeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE1E21D27CD1DEE00679249 /* TimeGenerator.swift */; };
-		DBE5D07727C1625000337BF7 /* RandomDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE5D07627C1625000337BF7 /* RandomDate.swift */; };
 		DBF1446D27C672FC005772AA /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1446C27C672FC005772AA /* SwipeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3FE2FE06DF4BAA0F833DA13E /* Pods_NotifApp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotifApp2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BAD583CC3245660A411FD2 /* Pods-NotifApp2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotifApp2.release.xcconfig"; path = "Target Support Files/Pods-NotifApp2/Pods-NotifApp2.release.xcconfig"; sourceTree = "<group>"; };
-		DB1848BC27E0FBBE00137013 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		DB21AFDA27B445FF000ACF77 /* NotifApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotifApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB21AFDD27B445FF000ACF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB21AFDF27B445FF000ACF77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,8 +44,8 @@
 		DB8E61DB27BD70AD004D71F0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DB8E61DD27BD73D7004D71F0 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		DB8E61DF27BD73F9004D71F0 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		DBE0F9FE27E25D760048BB8D /* LaunchTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTime.swift; sourceTree = "<group>"; };
 		DBE1E21D27CD1DEE00679249 /* TimeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeGenerator.swift; sourceTree = "<group>"; };
-		DBE5D07627C1625000337BF7 /* RandomDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDate.swift; sourceTree = "<group>"; };
 		DBF1446C27C672FC005772AA /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		E844930B819798F02399343D /* Pods-NotifApp2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotifApp2.debug.xcconfig"; path = "Target Support Files/Pods-NotifApp2/Pods-NotifApp2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,9 +131,8 @@
 				DB5F669F27BED16200499227 /* PresetData.swift */,
 				DB8E61DB27BD70AD004D71F0 /* Category.swift */,
 				DB8E61D927BD70A5004D71F0 /* Item.swift */,
-				DBE5D07627C1625000337BF7 /* RandomDate.swift */,
 				DBE1E21D27CD1DEE00679249 /* TimeGenerator.swift */,
-				DB1848BC27E0FBBE00137013 /* LocalNotificationManager.swift */,
+				DBE0F9FE27E25D760048BB8D /* LaunchTime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,14 +260,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB1848BD27E0FBBE00137013 /* LocalNotificationManager.swift in Sources */,
 				DB8E61DE27BD73D7004D71F0 /* CategoryTableViewController.swift in Sources */,
 				DB5F66A027BED16300499227 /* PresetData.swift in Sources */,
 				DB21AFE227B445FF000ACF77 /* ViewController.swift in Sources */,
 				DBE1E21E27CD1DEE00679249 /* TimeGenerator.swift in Sources */,
 				DB21AFDE27B445FF000ACF77 /* AppDelegate.swift in Sources */,
+				DBE0F9FF27E25D760048BB8D /* LaunchTime.swift in Sources */,
 				DBF1446D27C672FC005772AA /* SwipeTableViewController.swift in Sources */,
-				DBE5D07727C1625000337BF7 /* RandomDate.swift in Sources */,
 				DB21AFE027B445FF000ACF77 /* SceneDelegate.swift in Sources */,
 				DB3CEB5F27C54D70005E89F1 /* IntervalPicker.swift in Sources */,
 				DB8E61DA27BD70A5004D71F0 /* Item.swift in Sources */,
