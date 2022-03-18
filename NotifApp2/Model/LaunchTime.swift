@@ -27,7 +27,7 @@ struct LaunchTime {
             
             for cat in cats {
 
-                timeGenerator.setAllNotifications(repeats: false, freq: cat.freqs, intervals: cat.intervals, hours: cat.hours, category: cat.category, item: cat.items[Int.random(in: 0...(cat.items.count-1))].title)
+                timeGenerator.setAllNotifications(repeats: false, freq: cat.freqs, hours: cat.hours, category: cat.category, categ: cat)
 
 
                 

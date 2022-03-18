@@ -15,11 +15,11 @@ class IntervalPicker: UIViewController {
     let realm = try! Realm()
     
     let freq = K.frequencies
-    let repeats = K.intervals
+//    let repeats = K.intervals
     let hours = K.hours
     
     @IBOutlet weak var freqPicker: UIPickerView!
-    @IBOutlet weak var startAndEndPicker: UIPickerView!
+//    @IBOutlet weak var startAndEndPicker: UIPickerView!
     
 
     
@@ -30,8 +30,8 @@ class IntervalPicker: UIViewController {
         
         freqPicker.delegate          = self
         freqPicker.dataSource        = self
-        startAndEndPicker.delegate   = self
-        startAndEndPicker.dataSource = self
+//        startAndEndPicker.delegate   = self
+//        startAndEndPicker.dataSource = self
         
         
         if let selectedFreq = category?.freqs {
@@ -41,20 +41,20 @@ class IntervalPicker: UIViewController {
             freqPicker.selectRow(1, inComponent: 0, animated: true)
             
         }
-        if let interval = category?.intervals {
-            freqPicker.selectRow(interval, inComponent: 1, animated: true)
+        if let hour = category?.hours {
+            freqPicker.selectRow(hour, inComponent: 1, animated: true)
             
         } else {
             freqPicker.selectRow(1, inComponent: 1, animated: true)
             
         }
-        if let hour = category?.hours {
-            startAndEndPicker.selectRow(hour, inComponent: 0, animated: true)
-            
-        } else {
-            startAndEndPicker.selectRow(1, inComponent: 0, animated: true)
-            
-        }
+//        if let hour = category?.hours {
+//            startAndEndPicker.selectRow(hour, inComponent: 0, animated: true)
+//
+//        } else {
+//            startAndEndPicker.selectRow(1, inComponent: 0, animated: true)
+//
+//        }
     }
     
     
@@ -71,8 +71,8 @@ class IntervalPicker: UIViewController {
             do {
                 try realm.write {
                     currentCategory.freqs     = freqPicker.selectedRow(inComponent: 0)
-                    currentCategory.intervals = freqPicker.selectedRow(inComponent: 1)
-                    currentCategory.hours     = startAndEndPicker.selectedRow(inComponent: 0)
+                    currentCategory.hours = freqPicker.selectedRow(inComponent: 1)
+//                    currentCategory.hours     = startAndEndPicker.selectedRow(inComponent: 0)
                 }
                 
             }
@@ -107,35 +107,35 @@ extension IntervalPicker: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        if pickerView == freqPicker {
+//        if pickerView == freqPicker {
             if component == 0 {
                 return freq.count
                 
             } else {
-                return repeats.count
+                return hours.count
             }
             
-        } else {
-            return hours.count
-        }
-        
+//        } else {
+//            return hours.count
+//        }
+//
         
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        if pickerView == freqPicker {
+//        if pickerView == freqPicker {
             if component == 0 {
                 return freq[row]
                 
             } else {
-                return repeats[row]
+                return hours[row]
             }
             
-        } else {
-                return hours[row]
-            
-        }
+//        } else {
+//                return hours[row]
+//
+//        }
         
     }
     

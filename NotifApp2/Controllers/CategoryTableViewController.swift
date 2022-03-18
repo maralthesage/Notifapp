@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+//import UserNotifications
 
 
 
@@ -19,7 +20,7 @@ class CategoryTableViewController: SwipeTableViewController {
     let realm  = try! Realm()
     var time: Date?
     var categories: Results<Category>?
-    
+    let setFirstorSecondLaunch = LaunchTime()
     
     
     //MARK: - Standard Methods
@@ -28,6 +29,8 @@ class CategoryTableViewController: SwipeTableViewController {
         super.viewDidLoad()
         
         loadCategories()
+        setFirstorSecondLaunch.launchTime()
+        
     }
     
     
