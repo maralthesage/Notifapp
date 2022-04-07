@@ -17,13 +17,13 @@ struct TimeGenerator {
         let dateComponents = calculateNotificationDateComponents(freq: freq, hours: hours)
         
         for date in dateComponents {
-            print(date)
+//            print(date)
             
             let itemForDate = randomItem(category: categ)
 
             
-            setEachNotification(dateComponents: date[0], category: category, item: itemForDate)
-            print(category, " | ", date[0], " | ", itemForDate)
+            setEachNotification(dateComponents: date, category: category, item: itemForDate)
+            print(category, " | ", date, " | ", itemForDate)
 
             
         }
@@ -37,7 +37,12 @@ struct TimeGenerator {
     
     
 
-    
+//    func popClosTimes(dates: [DateComponents]) -> [DateComponents] {
+////        for date in dates {
+////            if date[
+////        }
+//        return dates
+//    }
     
     
     private func setEachNotification(dateComponents: DateComponents, category: String, item: String) {
@@ -47,16 +52,20 @@ struct TimeGenerator {
         content.title = category
         content.body  = item
         content.sound = .default
+        
+        // Let's see if these two lines work!
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone.current
 
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents,
-                                                        repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents,
+                                                    repeats: false)
+    
+        let request = UNNotificationRequest(identifier: "id_\(item)",
+                                            content: content,
+                                            trigger: trigger)
         
-            let request = UNNotificationRequest(identifier: "id_\(item)",
-                                                content: content,
-                                                trigger: trigger)
-        
-            UNUserNotificationCenter.current().add(request) { error in
-                guard error == nil else { return }
+        UNUserNotificationCenter.current().add(request) { error in
+            guard error == nil else { return }
 
             }
             
@@ -65,10 +74,10 @@ struct TimeGenerator {
 
    
 
-    private func calculateNotificationDateComponents(freq: Int, hours: Int) -> [[DateComponents]] {
+    private func calculateNotificationDateComponents(freq: Int, hours: Int) -> [DateComponents] {
 
         var dateComponents = DateComponents()
-        var randomDate: [[DateComponents]] = []
+        var randomDate: [DateComponents] = []
         
         for _ in 0...freq {
             
@@ -80,7 +89,7 @@ struct TimeGenerator {
                     dateComponents.hour   = Int.random(in: 9..<17)
                     dateComponents.minute = Int.random(in: 0..<60)
                     dateComponents.second = Int.random(in: 0..<60)
-                    randomDate.append([dateComponents])
+                    randomDate.append(dateComponents)
 
 //                } else if intervals == 1 {
 //
@@ -103,7 +112,7 @@ struct TimeGenerator {
                     
                     dateComponents.hour   = Int.random(in: 8...11)
                     dateComponents.minute = Int.random(in: 0...59)
-                    randomDate.append([dateComponents])
+                    randomDate.append(dateComponents)
 
 //                } else if intervals == 1 {
 //
@@ -126,7 +135,7 @@ struct TimeGenerator {
                     
                     dateComponents.hour   = Int.random(in: 20...21)
                     dateComponents.minute = Int.random(in: 0...59)
-                    randomDate.append([dateComponents])
+                    randomDate.append(dateComponents)
 
 //                } else if intervals == 1 {
 //
@@ -146,7 +155,7 @@ struct TimeGenerator {
             }
                 
         }
-
+        
         return randomDate
     }
     
